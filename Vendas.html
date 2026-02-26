@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Programa de Vendas Inglaterra</title>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+
+            /* FUNDO COM SUA IMAGEM */
+            background-image: url("https://freeimage.host/i/qf0ztol");
+            background-size: cover;          /* enquadra 100% */
+            background-position: center;      /* centraliza */
+            background-repeat: no-repeat;     /* sem repetição */
+            background-attachment: fixed;     /* efeito profissional */
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.78);
+            border: 3px solid #c8102e;
+            border-radius: 12px;
+            padding: 30px;
+            width: 400px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.9);
+            text-align: center;
+            color: #fff;
+        }
+
+        h1 {
+            color: #ffffff;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+
+        select, input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #c8102e;
+            border-radius: 6px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .resultado {
+            background: rgba(255,255,255,0.1);
+            border: 2px solid #c8102e;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+
+        .destaque {
+            color: #ff2b2b;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        hr {
+            border: 1px solid #c8102e;
+            margin: 10px 0;
+        }
+
+        footer {
+            margin-top: 15px;
+            font-size: 12px;
+            opacity: 0.8;
+        }
+        body {
+            margin: 0;
+            height: 100vh;
+            
+            /* Gradiente preto com vermelho mesclado */
+            background: linear-gradient(135deg, #000000, #8B0000, #000000);
+        
+
+            
+            /* Centralizar conteúdo (opcional) */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Programa de Vendas Inglaterra</h1>
+
+        <label for="arma">Arma</label>
+        <select id="arma" onchange="calcular()">
+            <option value="0">Selecione</option>
+            <option value="150000">FIVE-SEVEN - 150K</option>
+            <option value="200000">TEC-9 - 200K</option>
+            <option value="250000">MP5 - 250K</option>
+            <option value="400000">AK MK2 - 400K</option>
+             <option value="0">AR15 - ???</option>
+            <option value="500000">G36 - 500K</option>
+        </select>
+
+        <label for="quantidade">Quantidade</label>
+        <input type="number" id="quantidade" placeholder="Ex: 3" oninput="calcular()">
+
+        <div class="resultado">
+            <p>Valor total da venda</p>
+            <p class="destaque">R$ <span id="total">0,00</span></p>
+
+            <hr>
+
+            <p>Sua comissão (30%)</p>
+            <p class="destaque">R$ <span id="comissao">0,00</span></p>
+
+            <hr>
+
+            <p>Parte da Inglaterra (70%)</p>
+            <p class="destaque">R$ <span id="fac">0,00</span></p>
+        </div>
+
+        <footer> Tropa da Inglaterra </footer>
+    </div>
+
+    <script>
+        function calcular() {
+            let arma = parseFloat(document.getElementById("arma").value) || 0;
+            let qtd = parseInt(document.getElementById("quantidade").value) || 0;
+
+            let total = arma * qtd;
+            let comissao = total * 0.30;
+            let fac = total * 0.70;
+
+            document.getElementById("total").innerText = total.toLocaleString('pt-BR', {minimumFractionDigits:2});
+            document.getElementById("comissao").innerText = comissao.toLocaleString('pt-BR', {minimumFractionDigits:2});
+            document.getElementById("fac").innerText = fac.toLocaleString('pt-BR', {minimumFractionDigits:2});
+        }
+    </script>
+
+</body>
+</html>
